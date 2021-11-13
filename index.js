@@ -18,10 +18,10 @@ app.post('/events', async (req, res) => {
   events.push(event);
 
   try {
-    await axios.post('http://posts-srv:4000/events', event);
-    await axios.post('http://comments-srv:4001/events', event);
-    await axios.post('http://moderation-srv:4002/events', event);
-    await axios.post('http://query-srv:4003/events', event);
+    axios.post('http://posts-srv:4000/events', event);
+    axios.post('http://comments-srv:4001/events', event);
+    axios.post('http://query-srv:4002/events', event);
+    axios.post('http://moderation-srv:4003/events', event);
     res.status(200).json({ status: 'OK' });
   } catch (error) {
     console.log(error.message);
